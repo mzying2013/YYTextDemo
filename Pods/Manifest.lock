@@ -1,12 +1,15 @@
 PODS:
+  - ActionSheetPicker-3.0 (2.3.0)
   - Masonry (1.1.0)
 
 DEPENDENCIES:
+  - ActionSheetPicker-3.0
   - Masonry
 
 SPEC CHECKSUMS:
+  ActionSheetPicker-3.0: eef157d75e151f255c5333d26656c7fbfe905a51
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
 
-PODFILE CHECKSUM: 39e7294dc11c70cf900e8c099e567907bba6a00e
+PODFILE CHECKSUM: 6e7d96fe67aa6af56ce534f13f84e68ded97d5a0
 
 COCOAPODS: 1.3.1
