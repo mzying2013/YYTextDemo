@@ -12,6 +12,7 @@
 #import "UIImage+YYWebImage.h"
 #import "UIView+YYAdd.h"
 #import "NSString+YYAdd.h"
+@import Masonry;
 
 @implementation YYTextAttributeExample
 
@@ -32,8 +33,8 @@
         shadow.offset = CGSizeMake(0, 1);
         shadow.radius = 5;
         one.yy_textShadow = shadow;
-        [text appendAttributedString:one];
-        [text appendAttributedString:[self padding]];
+//        [text appendAttributedString:one];
+//        [text appendAttributedString:[self padding]];
     }
     
     {
@@ -45,8 +46,8 @@
         shadow.offset = CGSizeMake(0, 1);
         shadow.radius = 1;
         one.yy_textInnerShadow = shadow;
-        [text appendAttributedString:one];
-        [text appendAttributedString:[self padding]];
+//        [text appendAttributedString:one];
+//        [text appendAttributedString:[self padding]];
     }
     
     {
@@ -71,8 +72,8 @@
         innerShadow.radius = 1;
         one.yy_textInnerShadow = innerShadow;
         
-        [text appendAttributedString:one];
-        [text appendAttributedString:[self padding]];
+//        [text appendAttributedString:one];
+//        [text appendAttributedString:[self padding]];
     }
     
     {
@@ -96,8 +97,8 @@
         }];
         one.yy_color = [UIColor colorWithPatternImage:background];
         
-        [text appendAttributedString:one];
-        [text appendAttributedString:[self padding]];
+//        [text appendAttributedString:one];
+//        [text appendAttributedString:[self padding]];
     }
     
     {
@@ -113,12 +114,12 @@
         border.insets = UIEdgeInsetsMake(0, -4, 0, -4);
         one.yy_textBackgroundBorder = border;
         
-        [text appendAttributedString:[self padding]];
-        [text appendAttributedString:one];
-        [text appendAttributedString:[self padding]];
-        [text appendAttributedString:[self padding]];
-        [text appendAttributedString:[self padding]];
-        [text appendAttributedString:[self padding]];
+//        [text appendAttributedString:[self padding]];
+//        [text appendAttributedString:one];
+//        [text appendAttributedString:[self padding]];
+//        [text appendAttributedString:[self padding]];
+//        [text appendAttributedString:[self padding]];
+//        [text appendAttributedString:[self padding]];
     }
     
     {
@@ -151,25 +152,25 @@
                                 [_self showMessage:[NSString stringWithFormat:@"Tap: %@",[text.string substringWithRange:range]]];
                             }];
         
-        [text appendAttributedString:one];
-        [text appendAttributedString:[self padding]];
+//        [text appendAttributedString:one];
+//        [text appendAttributedString:[self padding]];
     }
     
     {
         NSMutableAttributedString *one = [[NSMutableAttributedString alloc] initWithString:@"Another Link"];
-        one.yy_font = [UIFont boldSystemFontOfSize:30];
+        one.yy_font = [UIFont boldSystemFontOfSize:16];
         one.yy_color = [UIColor redColor];
         
         YYTextBorder *border = [YYTextBorder new];
         border.cornerRadius = 50;
-        border.insets = UIEdgeInsetsMake(0, -10, 0, -10);
+        border.insets = UIEdgeInsetsMake(0, -4, 0, -4);
         border.strokeWidth = 0.5;
         border.strokeColor = one.yy_color;
         border.lineStyle = YYTextLineStyleSingle;
         one.yy_textBackgroundBorder = border;
         
         YYTextBorder *highlightBorder = border.copy;
-        highlightBorder.strokeWidth = 0;
+        highlightBorder.strokeWidth = 0.5;
         highlightBorder.strokeColor = one.yy_color;
         highlightBorder.fillColor = one.yy_color;
         
@@ -179,9 +180,13 @@
         highlight.tapAction = ^(UIView *containerView, NSAttributedString *text, NSRange range, CGRect rect) {
             [_self showMessage:[NSString stringWithFormat:@"Tap: %@",[text.string substringWithRange:range]]];
         };
-        [one yy_setTextHighlight:highlight range:one.yy_rangeOfAll];
+//        [one yy_setTextHighlight:highlight range:one.yy_rangeOfAll];
         
         [text appendAttributedString:one];
+        NSAttributedString * _attributedString = [[NSAttributedString alloc] initWithString:@"   "];
+        [text appendAttributedString:_attributedString];
+//        [text appendAttributedString:[self padding]];
+        [text appendAttributedString:[one copy]];
         [text appendAttributedString:[self padding]];
     }
     
@@ -217,20 +222,27 @@
         [highlight setInnerShadow:innerShadow0];
         [one yy_setTextHighlight:highlight range:one.yy_rangeOfAll];
         
-        [text appendAttributedString:one];
+//        [text appendAttributedString:one];
     }
     
     
     YYLabel *label = [YYLabel new];
     label.attributedText = text;
-    label.width = self.view.width;
-    label.height = self.view.height - (kiOS7Later ? 64 : 44);
-    label.top = (kiOS7Later ? 64 : 0);
+//    label.width = self.view.width;
+//    label.height = self.view.height - (kiOS7Later ? 64 : 44);
+//    label.top = (kiOS7Later ? 64 : 0);
     label.textAlignment = NSTextAlignmentCenter;
     label.textVerticalAlignment = YYTextVerticalAlignmentCenter;
     label.numberOfLines = 0;
-    label.backgroundColor = [UIColor colorWithWhite:0.933 alpha:1.000];
+//    label.backgroundColor = [UIColor colorWithWhite:0.933 alpha:1.000];
+    
     [self.view addSubview:label];
+    
+    [label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(self.view);
+        make.top.equalTo(self.view).offset(100);
+        make.height.mas_equalTo(30);
+    }];
     
     /*
      If the 'highlight.tapAction' is not nil, the label will invoke 'highlight.tapAction' 

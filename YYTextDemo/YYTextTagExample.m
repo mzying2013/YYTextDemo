@@ -10,6 +10,7 @@
 #import "YYText.h"
 #import "UIView+YYAdd.h"
 #import "YYTextExampleHelper.h"
+@import Masonry;
 
 @interface YYTextTagExample () <YYTextViewDelegate>
 @property (nonatomic, assign) YYTextView *textView;
@@ -20,9 +21,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    if ([self respondsToSelector:@selector(setAutomaticallyAdjustsScrollViewInsets:)]) {
-        self.automaticallyAdjustsScrollViewInsets = NO;
-    }
+//    if ([self respondsToSelector:@selector(setAutomaticallyAdjustsScrollViewInsets:)]) {
+//        self.automaticallyAdjustsScrollViewInsets = NO;
+//    }
     
     NSMutableAttributedString *text = [NSMutableAttributedString new];
     NSArray *tags = @[@"red12", @"orange", @"◉yellow", @"◉green", @"◉blue", @"◉purple45", @"◉gray"];
@@ -95,10 +96,6 @@
     textView.selectable = NO;
     textView.editable = NO;
     
-    
-    
-    
-    
 //    textView.delegate = self;
 //    if (kiOS7Later) {
 //        textView.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
@@ -107,38 +104,47 @@
 //    }
 //    textView.scrollIndicatorInsets = textView.contentInset;
 //    textView.selectedRange = NSMakeRange(text.length, 0);
-//    [self.view addSubview:textView];
-//    self.textView = textView;
+    [self.view addSubview:textView];
+    self.textView = textView;
 //
 //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 //        [textView becomeFirstResponder];
 //    });
+    
+//    textView.size = CGSizeMake(300, 100);
+    
+    __weak typeof(self) weakSelf = self;
+                  
+      [self.textView mas_makeConstraints:^(MASConstraintMaker *make) {
+          make.top.and.left.and.right.equalTo(weakSelf.view);
+          make.height.mas_equalTo(30);
+      }];
 }
-
-- (void)edit:(UIBarButtonItem *)item {
-    if (_textView.isFirstResponder) {
-        [_textView resignFirstResponder];
-    } else {
-        [_textView becomeFirstResponder];
-    }
-}
-
-#pragma mark text view
-
-- (void)textViewDidBeginEditing:(YYTextView *)textView {
-    UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
-                                                                                target:self
-                                                                                action:@selector(edit:)];
-    self.navigationItem.rightBarButtonItem = buttonItem;
-}
-
-- (void)textViewDidEndEditing:(YYTextView *)textView {
-    self.navigationItem.rightBarButtonItem = nil;
-}
-
-- (void)textView:(YYTextView *)textView didTapHighlight:(YYTextHighlight *)highlight inRange:(NSRange)characterRange rect:(CGRect)rect{
-    NSLog(@"rect:%@",NSStringFromCGRect(rect));
-}
+//
+//- (void)edit:(UIBarButtonItem *)item {
+//    if (_textView.isFirstResponder) {
+//        [_textView resignFirstResponder];
+//    } else {
+//        [_textView becomeFirstResponder];
+//    }
+//}
+//
+//#pragma mark text view
+//
+//- (void)textViewDidBeginEditing:(YYTextView *)textView {
+//    UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+//                                                                                target:self
+//                                                                                action:@selector(edit:)];
+//    self.navigationItem.rightBarButtonItem = buttonItem;
+//}
+//
+//- (void)textViewDidEndEditing:(YYTextView *)textView {
+//    self.navigationItem.rightBarButtonItem = nil;
+//}
+//
+//- (void)textView:(YYTextView *)textView didTapHighlight:(YYTextHighlight *)highlight inRange:(NSRange)characterRange rect:(CGRect)rect{
+//    NSLog(@"rect:%@",NSStringFromCGRect(rect));
+//}
 
 
 
