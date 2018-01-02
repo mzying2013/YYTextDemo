@@ -12,6 +12,7 @@
 #import "UIImage+YYWebImage.h"
 #import "UIView+YYAdd.h"
 #import "NSString+YYAdd.h"
+#import "YYLabel+GXTags.h"
 @import Masonry;
 
 @implementation YYTextAttributeExample
@@ -158,16 +159,19 @@
     
     {
         NSMutableAttributedString *one = [[NSMutableAttributedString alloc] initWithString:@"Another Link"];
-        one.yy_font = [UIFont boldSystemFontOfSize:16];
+        one.yy_font = [UIFont systemFontOfSize:16];
         one.yy_color = [UIColor redColor];
         
+        
         YYTextBorder *border = [YYTextBorder new];
-        border.cornerRadius = 50;
+        border.cornerRadius = 15;
         border.insets = UIEdgeInsetsMake(0, -4, 0, -4);
         border.strokeWidth = 0.5;
         border.strokeColor = one.yy_color;
         border.lineStyle = YYTextLineStyleSingle;
+//        border.fillColor = [UIColor greenColor];
         one.yy_textBackgroundBorder = border;
+//        one.yy_textBorder = border;
         
         YYTextBorder *highlightBorder = border.copy;
         highlightBorder.strokeWidth = 0.5;
@@ -180,14 +184,22 @@
         highlight.tapAction = ^(UIView *containerView, NSAttributedString *text, NSRange range, CGRect rect) {
             [_self showMessage:[NSString stringWithFormat:@"Tap: %@",[text.string substringWithRange:range]]];
         };
-//        [one yy_setTextHighlight:highlight range:one.yy_rangeOfAll];
+        [one yy_setTextHighlight:highlight range:one.yy_rangeOfAll];
         
         [text appendAttributedString:one];
-        NSAttributedString * _attributedString = [[NSAttributedString alloc] initWithString:@"   "];
+        NSMutableAttributedString * _attributedString = [[NSMutableAttributedString alloc] initWithString:@"      "];
+        _attributedString.yy_font = [UIFont systemFontOfSize:3];
         [text appendAttributedString:_attributedString];
 //        [text appendAttributedString:[self padding]];
         [text appendAttributedString:[one copy]];
-        [text appendAttributedString:[self padding]];
+        
+//        [text appendAttributedString:[_attributedString copy]];
+//        [text appendAttributedString:[one copy]];
+//
+//        [text appendAttributedString:[_attributedString copy]];
+//        [text appendAttributedString:[one copy]];
+        
+//        [text appendAttributedString:[self padding]];
     }
     
     {
@@ -227,7 +239,8 @@
     
     
     YYLabel *label = [YYLabel new];
-    label.attributedText = text;
+//    label.attributedText = text;
+    [label addTags:@[@"110",@"911",@"iOS",@"Android"]];
 //    label.width = self.view.width;
 //    label.height = self.view.height - (kiOS7Later ? 64 : 44);
 //    label.top = (kiOS7Later ? 64 : 0);

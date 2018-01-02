@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A9263F831FFB729D002D12A4 /* YYLabel+GXTags.m in Sources */ = {isa = PBXBuildFile; fileRef = A9263F821FFB729D002D12A4 /* YYLabel+GXTags.m */; };
 		B3D85176038D89142C99DEBD /* Pods_YYTextDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA0A0BF81A143EA44AB558C2 /* Pods_YYTextDemo.framework */; };
 		D91054861F3735D20007F224 /* Animated image support.txt in Resources */ = {isa = PBXBuildFile; fileRef = D910547B1F3735D20007F224 /* Animated image support.txt */; };
 		D91054871F3735D20007F224 /* YYAnimatedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D910547D1F3735D20007F224 /* YYAnimatedImageView.m */; };
@@ -84,6 +85,8 @@
 
 /* Begin PBXFileReference section */
 		04D8B2E24B8BDC582A7D7FF6 /* Pods-YYTextDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YYTextDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-YYTextDemo/Pods-YYTextDemo.release.xcconfig"; sourceTree = "<group>"; };
+		A9263F811FFB729D002D12A4 /* YYLabel+GXTags.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YYLabel+GXTags.h"; sourceTree = "<group>"; };
+		A9263F821FFB729D002D12A4 /* YYLabel+GXTags.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "YYLabel+GXTags.m"; sourceTree = "<group>"; };
 		ADEE7CEEC81DB4A67B5FCB29 /* Pods-YYTextDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YYTextDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YYTextDemo/Pods-YYTextDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		D910547B1F3735D20007F224 /* Animated image support.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Animated image support.txt"; sourceTree = "<group>"; };
 		D910547C1F3735D20007F224 /* YYAnimatedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYAnimatedImageView.h; sourceTree = "<group>"; };
@@ -435,6 +438,8 @@
 		D94EE98D1F37304200F37AD6 /* YYTextDemo */ = {
 			isa = PBXGroup;
 			children = (
+				A9263F811FFB729D002D12A4 /* YYLabel+GXTags.h */,
+				A9263F821FFB729D002D12A4 /* YYLabel+GXTags.m */,
 				D910550F1F37367B0007F224 /* YYTextExample.h */,
 				D91055101F37367B0007F224 /* YYTextExample.m */,
 				D91055111F37367B0007F224 /* YYTextExampleHelper.h */,
@@ -618,6 +623,7 @@
 				D91054CC1F3735E50007F224 /* YYTextParser.m in Sources */,
 				D91055221F37367B0007F224 /* YYTextExample.m in Sources */,
 				D91054F81F3736700007F224 /* NSData+YYAdd.m in Sources */,
+				A9263F831FFB729D002D12A4 /* YYLabel+GXTags.m in Sources */,
 				D91054F71F3736700007F224 /* NSBundle+YYAdd.m in Sources */,
 				D91054C81F3735E50007F224 /* YYTextMagnifier.m in Sources */,
 				D91054DE1F3736060007F224 /* ViewController.m in Sources */,
