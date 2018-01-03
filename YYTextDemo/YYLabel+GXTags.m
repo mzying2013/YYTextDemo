@@ -20,7 +20,7 @@
         _mAttributedString.yy_color = [UIColor blueColor];
         
         YYTextBorder * _border = [YYTextBorder new];
-        _border.cornerRadius = 15;
+        _border.cornerRadius = 6.0;
         _border.insets = UIEdgeInsetsMake(0, -4, 0, -4);
         _border.strokeWidth = 0.5;
         _border.strokeColor = _mAttributedString.yy_color;
@@ -33,7 +33,7 @@
         
         NSMutableAttributedString * _spaceAttributedString = [[NSMutableAttributedString alloc] initWithString:@"    "];
         _spaceAttributedString.yy_font = [UIFont systemFontOfSize:16];
-        [_attributedString appendAttributedString:_spaceAttributedString];
+        [_attributedString appendAttributedString:[_spaceAttributedString copy]];
     }
     
     

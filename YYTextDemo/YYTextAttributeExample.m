@@ -240,19 +240,21 @@
     
     YYLabel *label = [YYLabel new];
 //    label.attributedText = text;
-    [label addTags:@[@"110",@"911",@"iOS",@"Android"]];
+    [label addTags:@[@"110",@"911",@"iOS",@"Android&iOS"]];
 //    label.width = self.view.width;
 //    label.height = self.view.height - (kiOS7Later ? 64 : 44);
 //    label.top = (kiOS7Later ? 64 : 0);
-    label.textAlignment = NSTextAlignmentCenter;
+    label.textAlignment = NSTextAlignmentRight;
     label.textVerticalAlignment = YYTextVerticalAlignmentCenter;
-    label.numberOfLines = 0;
-//    label.backgroundColor = [UIColor colorWithWhite:0.933 alpha:1.000];
-    
+    label.numberOfLines = 1;
+    label.backgroundColor = [UIColor colorWithWhite:0.933 alpha:1.000];
+    label.textContainerInset = UIEdgeInsetsMake(0, 0, 0, 5);
     [self.view addSubview:label];
+    self.view.backgroundColor = [UIColor grayColor];
     
     [label mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(self.view);
+        make.left.equalTo(self.view).offset(10);
+        make.right.equalTo(self.view).offset(-10);
         make.top.equalTo(self.view).offset(100);
         make.height.mas_equalTo(30);
     }];
